@@ -73,4 +73,4 @@ def scrape_website(sitemap_url):
         return jsonify({'error': 'An internal server error occurred'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
