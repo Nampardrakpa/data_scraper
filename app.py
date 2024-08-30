@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 from bs4 import BeautifulSoup
+import os
 
 app = Flask(__name__)
 
@@ -73,4 +74,6 @@ def scrape_website(sitemap_url):
         return jsonify({'error': 'An internal server error occurred'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    # Use the PORT environment variable for Render
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
